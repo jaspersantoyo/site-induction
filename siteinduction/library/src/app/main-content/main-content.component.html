@@ -1,0 +1,159 @@
+<div *ngIf="settings && isMobile" class="mobile-header">
+  <div class="column">
+    <button type="button" class="nav-toggle" (click)="toggleNav()"></button>
+    <img class="logo-img hi-res" src="{{ settings.logo }}" alt="Macquarie Telecom Group" />
+  </div>
+</div>
+<header class="inline-display" *ngIf="settings" [ngStyle]="{ 'background-image': 'url(' + settings.bannerImage + ')' }"
+  (window:resize)="onScreenResize($event)">
+  <div class="container">
+    <div *ngIf="!isMobile" class="logo inline-display">
+      <img class="logo-img hi-res" src="{{ settings.logo }}" alt="Macquarie Telecom Group" />
+    </div>
+    <div class="heading inline-display">
+      <h1 class="text-white">{{ settings.heading }}</h1>
+      <div class="text-white" [innerHTML]="settings.subheading"></div>
+    </div>
+  </div>
+</header>
+
+<section *ngIf="settings" class="main-content">
+  <div class="container">
+    <div class="col-sm-4 navigation" [ngClass]="{'mobile': isMobile}" [@navToggle]="isMobile && navState">
+      <h5 class="toggle-close" *ngIf="isMobile">Navigation
+        <button type="button" class="close" aria-label="Close" (click)="toggleNav()">
+          <i class="fa fa-times"></i>
+        </button>
+      </h5>
+      <section *ngFor="let section of sections; index as i">
+        <h4 class="location steps counter" [ngClass]="{'current': wizard.currentLocation === section.location}"
+          [class.active]="validateDciStep(steps.MAIN_CONTENT)" [class.isDone]="checkCurrentStepIfDone(steps.MAIN_CONTENT, i)">
+          <i class="fa fa-check"></i>
+          {{section.location }}
+        </h4>
+        <ul class="sections">
+          <li *ngFor="let item of section.sections" [ngClass]="{'checked': item.checked, 'current': wizard.currentSection === item.heading}"
+            (click)="viewSection(section.location, item)">
+            <span class="fa" [ngClass]="{'fa-caret-right': !item.checked, 'fa-check': item.checked}"></span>
+            {{ item.title }}
+          </li>
+        </ul>
+      </section>
+      <section *ngIf="sections.length > 0" (click)="goToDownloadAndPrint()">
+        <h4 class="steps counter" [class.isClickable]="validateDciStep(steps.BOOK_TIMESLOT)" [class.active]="validateDciStep(steps.DOWNLOAD_PRINT)"
+          [class.isDone]="checkCurrentStepIfDone(steps.DOWNLOAD_PRINT)">
+          <i class="fa fa-check"></i>
+          Download and Print
+        </h4>
+      </section>
+      <section *ngIf="sections.length > 0">
+        <h4 class="steps counter" [class.active]="validateDciStep(steps.BOOK_TIMESLOT)" [class.isDone]="checkCurrentStepIfDone(steps.BOOK_TIMESLOT)">
+          <i class="fa fa-check"></i>
+          Book a Timeslot
+        </h4>
+      </section>
+      <section *ngIf="sections.length > 0">
+        <h4 class="steps" [class.active]="validateDciStep(steps.SUMMARY)">Summary</h4>
+      </section>
+      <section *ngIf="!validateDciStep(steps.SUMMARY)">
+        <a class="exit-link" href="#" (click)="exitApp($event)">
+          <h4>Exit</h4>
+        </a>
+      </section>
+    </div>
+
+    <div class="col-sm-8 content">
+      <main *ngIf="validateDciStep(steps.MAIN_CONTENT)">
+        <div *ngFor="let section of sections; let sIndex = index" id="{{ section.location }}">
+          <section class="col-sm-12" *ngIf="wizard.currentLocation === section.location">
+            <div *ngFor="let data of section.sections; let i = index">
+              <div *ngIf="data.subtopics.length > 0 && wizard.currentSection === data.heading">
+                <div *ngIf="i < 1">
+                  <h2>{{ section.location }} Reading Material</h2>
+                  <h4 [innerHTML]="section.introduction"></h4>
+                  <hr />
+                </div>
+                <h2 class="subcontent-title">
+                  <span> {{createSubContentHeadingNumbering(sIndex, i)}}</span>
+                  {{data.heading}}
+                </h2>
+
+                <ngb-accordion [closeOthers]="options.oneAtATime" activeIds="subtopics-0">
+                  <ngb-panel *ngFor="let subtopic of data.subtopics; let n = index" id="subtopics-{{n}}">
+                    <ng-template ngbPanelTitle>
+                      <div class="accordion-head">
+                        <span class="accordion-heading inline-display">{{ subtopic.title }}</span>
+                        <span class="accordion-button fa fa-plus plus"></span>
+                        <span class="accordion-button fa fa-minus minus"></span>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                      <div [innerHTML]="subtopic.content"></div>
+                    </ng-template>
+                  </ngb-panel>
+                </ngb-accordion>
+
+                <button type="button" class="btn btn-next" (click)="nextSection(section.location, data.heading)">
+                  Next
+                </button>
+              </div>
+              <div *ngIf="data.quiz.length > 0 && wizard.currentSection === data.heading">
+                <h2>{{ data.heading }}</h2>
+                <h4>{{ data.subheading }}</h4>
+                <hr />
+                <form novalidate #form="ngForm" (ngSubmit)="submitQuiz($event, data.quiz)">
+                  <section *ngFor="let quiz of data.quiz">
+                    <h3 class="quiz-category">{{ quiz.category }}</h3>
+                    <div class="quiz-question" *ngFor="let question of quiz.questions; let n = index">
+                      <h4 class="question">{{ question.question }}</h4>
+                      <div class="form-group">
+                        <div *ngIf="question.type === 'open_ended_question'">
+                          <div [hidden]="(usersAnswer.valid && usersAnswer.touched) || (usersAnswer.untouched && !options.isQuizSubmitted) || (usersAnswer.valid && options.isQuizSubmitted)"
+                            class="text-error">
+                            <span class="fa fa-exclamation-circle"></span> Please input your answer
+                          </div>
+                          <textarea class="form-control required" [ngClass]="{'invalid-field': (usersAnswer.invalid && options.isQuizSubmitted)}"
+                            name="{{ quiz.category | toLispCase }}-{{ n + 1 }}-answer" rows="5" #usersAnswer="ngModel"
+                            [(ngModel)]="question.usersAnswer" required></textarea>
+                        </div>
+
+                        <div *ngIf="question.type === 'multiple_choice_question'">
+                          <div [hidden]="question.usersAnswer || !options.isQuizSubmitted" class="text-error">
+                            <span class="fa fa-exclamation-circle"></span> Please choose your answer
+                          </div>
+                          <div *ngIf="question.usersAnswer && question.validate && question.usersAnswer !== question.correctAnswer"
+                            class="text-error">
+                            <span class="fa fa-exclamation-circle"></span> Your answer is incorrect
+                          </div>
+                          <div class="choices" [ngClass]="{'invalid-field': (!question.usersAnswer && options.isQuizSubmitted)}">
+                            <div class="radio" *ngFor="let choice of question.choices; let i = index">
+                              <label>
+                                <input type="radio" id="{{ quiz.category | toLispCase }}-{{ n + 1 }}" class="choice-{{ i + 1 }}"
+                                  [ngClass]="{'incorrect': (chosenAnswer.checked && !question.isCorrect), 'correct': (chosenAnswer.checked && question.isCorrect), 'validate': question.validate}"
+                                  name="{{ quiz.category | toLispCase }}-{{ n + 1 }}" #chosenAnswer [(ngModel)]="question.usersAnswer"
+                                  (ngModelChange)="selectedAnswer(question)" [value]="choice.choice" required />
+                                <span>
+                                  <i></i> {{ choice.choice }}
+                                </span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                  <button type="submit" class="btn btn-submit" [disabled]="!form.valid">
+                    Submit Quiz
+                  </button>
+                </form>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <download-print *ngIf="validateDciStep(steps.DOWNLOAD_PRINT)" [downloadPrintData]="mainContentData.downloadPrintData"></download-print>
+      <book-timeslot *ngIf="validateDciStep(steps.BOOK_TIMESLOT)"></book-timeslot>
+      <app-summary *ngIf="validateDciStep(steps.SUMMARY)" [summaryData]="mainContentData.summaryData"></app-summary>
+    </div>
+  </div>
+</section>

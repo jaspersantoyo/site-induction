@@ -1,0 +1,322 @@
+@import "../shared/base";
+@import "fonts";
+
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  background-color: #000;
+  font-family: Circular-Pro-Book;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: Circular-Pro-Bold;
+}
+
+.container {
+  max-width: 970px;
+}
+
+.mobile-header {
+  position: fixed;
+  width: 100%;
+  background-color: #000;
+  text-align: center;
+  padding: 25px 0;
+  z-index: $zindex-mid;
+}
+
+.mobile-header .nav-toggle {
+  background: transparent url($wp_dist_url + '/assets/img/nav-icon.png') no-repeat center center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 15px;
+  width: 32px;
+  height: 26px;
+  margin: auto 0;
+  border: none;
+}
+
+.mobile-header .logo-img {
+  max-width: 180px;
+}
+
+/* Footer */
+.footer-links ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links ul li {
+  display: inline-block;
+  padding: 0 10px;
+  border-left: 1px solid $color-grey-01;
+  line-height: 15px;
+}
+
+.footer-links ul li a {
+  color: $color-grey-01;
+}
+
+/* Enrty form */
+.message h1,
+.message h2 {
+  line-height: 40px;
+}
+
+/* Entry form content */
+.entry-form-content .content,
+.mobile-entry-form-content .content {
+  color: #fff;
+}
+
+.btn-submit.btn,
+.btn-next.btn {
+  display: inline-block;
+  background: url($wp_dist_url + '/assets/img/white-arrow.png') no-repeat 90% center;
+  background-color: $bg-color-dark-01;
+  position: relative;
+  height: 55px;
+  max-width: 250px;
+  min-width: 150px;
+  padding: 10px 90px 10px 20px;
+  color: $color-white;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: left;
+  line-height: 120%;
+}
+
+.btn-submit.btn.disabled,
+.btn-submit.btn:disabled,
+.btn-next.btn.disabled,
+.btn-next.btn:disabled {
+  cursor: not-allowed;
+}
+
+/* MyDatePicker Plugin */
+my-date-picker {
+  line-height: 1;
+  display: inline-block;
+  border-radius: 4px;
+  width: 100%;
+
+  .mydp {
+    .selection {
+      padding-left: 20px;
+      padding-right: 60px;
+      border: 1px solid black;
+      font-family: Circular-Pro-Book;
+    }
+
+    .btnpicker {
+      width: 60px;
+      background-color: $bg-color-dark-01;
+      color: white;
+      border: 1px solid black;
+      border-left: none;
+    }
+
+    .weekdaytitle {
+      height: 30px;
+      background-color: $bg-color-dark-01;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: white;
+    }
+
+    .selector,
+    .selector:focus {
+      border: 1px solid black;
+    }
+
+    .selectorarrow:before,
+    .selectorarrow:focus:before {
+      border-bottom-color: black;
+    }
+
+    .daycell {
+      border: 1px solid grey;
+    }
+
+    .selectedday,
+    .selectedday .datevalue {
+      background-color: $bg-color-dark-01;
+      color: white;
+    }
+
+    .tablesingleday:hover {
+      background-color: $bg-color-dark-01;
+      opacity: .7;
+    }
+  }
+}
+
+/* Angular Bootstrap Accordion */
+.card-header {
+  padding: 0;
+}
+
+.accordion-heading {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.1;
+  padding-right: 5px;
+}
+
+.btn-link {
+  color: $color-grey-01;
+  font-size: 18px;
+  padding-left: 0;
+  font-weight: 500;
+  font-family: Circular-Pro-Bold;
+  width: 100%;
+  height: 100%;
+}
+
+.btn-link:hover {
+  color: $color-grey-01;
+}
+
+.accordion-head {
+  width: 100%;
+  height: 100%;
+  padding: 10px 15px;
+  text-align: left;
+  position: relative;
+}
+
+.accordion-head .minus {
+  display: none;
+  vertical-align: middle;
+  white-space: normal;
+}
+
+.accordion-head .plus {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+}
+
+.collapsed .accordion-head .minus {
+  display: inline-block;
+}
+
+.collapsed .accordion-head .plus {
+  display: none;
+}
+
+/* Mobile redenring */
+@media all and (max-width: 767px) {
+  .footer-links ul li:first-child {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .footer-links ul li {
+    padding: 0 5px;
+  }
+
+  .footer-links ul li a {
+    font-size: 13px;
+  }
+
+  my-date-picker {
+    .mydp {
+      .selector {
+        left: 0;
+      }
+
+      .selectorarrowright:after,
+      .selectorarrowright:before {
+        left: 90%;
+      }
+    }
+  }
+}
+
+
+// Specific breakpoints to handle DatePicker in Mobile
+@media all and (max-width: 620px) {
+  my-date-picker {
+    .mydp {
+
+      .selectorarrowright:after,
+      .selectorarrowright:before {
+        left: 75%;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 578px) {
+  my-date-picker {
+    .mydp {
+
+      .selectorarrowright:after,
+      .selectorarrowright:before {
+        left: 70%;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 500px) {
+  my-date-picker {
+    .mydp {
+
+      .selectorarrowright:after,
+      .selectorarrowright:before {
+        left: 75%;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 440px) {
+  .btn-submit.btn,
+  .btn-next.btn {
+    font-size: 1.2rem;
+    padding: 0 90px 0 20px;
+    height: 40px;
+  }
+
+  my-date-picker {
+    .mydp {
+
+      .selectorarrowright:after,
+      .selectorarrowright:before {
+        left: 62%;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 370px) {
+  my-date-picker {
+    .mydp {
+
+      .selectorarrowright:after,
+      .selectorarrowright:before {
+        left: 50%;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 320px) {
+
+  my-date-picker {
+    .mydp {
+
+      .selectorarrowright:after,
+      .selectorarrowright:before {
+        left: 42%;
+      }
+    }
+  }
+}

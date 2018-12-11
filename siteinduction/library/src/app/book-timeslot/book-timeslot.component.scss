@@ -1,0 +1,157 @@
+@import '../../styles/shared/base';
+
+:host {
+  display: block;
+
+  h2 {
+    margin-bottom: 15px;
+  }
+
+  h4 {
+    margin-bottom: 30px;
+    color: $text-color-dark-01;
+  }
+
+  .validation {
+    float: left;
+    color: $error-icon-color;
+  }
+
+  form {
+    padding-bottom: 230px;
+    position: relative;
+
+    .btn-submit {
+      position: absolute;
+      right: 0;
+      bottom: 100px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.schedule-options {
+  display: inline-block;
+  padding: 10px 15px;
+  padding-top: 0;
+  width: 100%;
+  padding-right: 0;
+
+  .title {
+    font-size: 120%;
+    margin-bottom: 10px;
+  }
+
+  .selections {
+    margin: 10px 0;
+
+    >div {
+      float: left;
+    }
+
+    .inspection-date {
+      width: 45%;
+      margin-right: 2.5%;
+      position: relative;
+
+      >i {
+        position: absolute;
+        color: $text-color-dark;
+        z-index: 100;
+        right: 21px;
+        top: 9px;
+        font-size: 20px;
+      }
+
+      .inactive {
+        ::ng-deep {
+          span.mydpicon {
+            visibility: hidden;
+          }
+        }
+      }
+    }
+
+    .inspection-hours {
+      width: 33%;
+      margin-left: 2.5%;
+      padding-top: 1px;
+    }
+  }
+
+  .disclaimer-content {
+    margin-top: 20px;
+    float: left;
+
+    ::ng-deep {
+      h2 {
+        color: $text-color-dark-01;
+        font-size: 18px;
+      }
+
+      p {
+        line-height: 1.7;
+        text-align: justify;
+      }
+    }
+  }
+}
+
+.inspection-hours {
+  position: relative;
+  width: 155px;
+
+  select {
+    height: 36px;
+    font-size: 13px;
+    border: 1px solid $border-color-dark;
+    color: $text-color-dark-01;
+    background: $bg-color-light url($wp_dist_url + '/assets/img/dropdown-arrow.png') no-repeat 92% center;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    padding-right: 40px;
+    padding-left: 20px;
+  }
+
+  select::-ms-expand {
+    display: none;
+  }
+
+  select:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+
+  span {
+    position: absolute;
+    right: 10px;
+  }
+}
+
+// Specific breakpoints to handle DatePicker in Mobile
+@media all and (max-width: 500px) {
+  :host {
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    h4 {
+      font-size: 1.3rem;
+    }
+
+  }
+
+  .schedule-options .selections {
+
+    .inspection-date,
+    .inspection-hours {
+      width: 80%;
+      margin: 0 10%;
+    }
+  }
+}

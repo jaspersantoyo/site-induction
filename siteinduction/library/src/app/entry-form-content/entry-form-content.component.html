@@ -1,0 +1,8 @@
+<div *ngIf="!content">
+  Loading...
+</div>
+<div *ngIf="content" class="content">
+  <h3>{{ content.preheader }}</h3>
+  <h1>{{ content.heading }}</h1>
+  <div [innerHTML]="content.subheading"></div>
+</div>

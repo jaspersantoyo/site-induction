@@ -1,0 +1,85 @@
+{
+  "extends": [
+    /**
+     * A list of relative or absolute paths to directories that contain custom rules.
+     * See the Custom Rules documentation below for more details.
+     */
+    "tslint:recommended"
+  ],
+  "rulesDirectory": [
+    /**
+     * Any rules specified here will override those from the base config we are extending.
+     */
+    "node_modules/codelyzer"
+  ],
+  "rules": {
+    /** Custom */
+    "no-var-requires": false,
+    "trailing-comma": [false, {
+      "multiline": "always",
+      "singleline": "never"
+    }],
+    "interface-name": [false, "always-prefix"],
+    /** Angular 5 */
+    "component-class-suffix": true,
+    "directive-class-suffix": true,
+    "no-attribute-parameter-decorator": true,
+    "no-empty-interface": false,
+    "no-forward-ref": false,
+    "no-input-rename": true,
+    "no-output-rename": true,
+    "only-arrow-functions": false,
+    "pipe-naming": [true, "camelCase"],
+    "use-host-property-decorator": false,
+    "use-input-property-decorator": true,
+    "use-life-cycle-interface": true,
+    "use-output-property-decorator": true,
+    "use-pipe-transform-interface": true,
+    /** General */
+    "no-console": [true,
+      "time",
+      "timeEnd",
+      "trace"
+    ],
+    "max-line-length": [
+      true,
+      120
+    ],
+    "callable-types": false,
+    "prefer-const": false,
+    "interface-over-type-literal": false,
+    "no-string-literal": false,
+    "no-use-before-declare": true,
+    "object-literal-sort-keys": false,
+    "object-literal-key-quotes": false,
+    "ordered-imports": [
+      false
+    ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-operator",
+      "check-typecast"
+    ],
+    "quotemark": [
+      true,
+      "single",
+      "avoid-escape"
+    ],
+    "variable-name": [
+      true,
+      "allow-leading-underscore",
+      "ban-keywords",
+      "check-format"
+    ],
+    "ban-types": {
+      "options": [
+        ["Object", "Avoid using the `Object` type. Did you mean `object`?"],
+        ["Boolean", "Avoid using the `Boolean` type. Did you mean `boolean`?"],
+        ["Number", "Avoid using the `Number` type. Did you mean `number`?"],
+        ["String", "Avoid using the `String` type. Did you mean `string`?"],
+        ["Symbol", "Avoid using the `Symbol` type. Did you mean `symbol`?"]
+      ]
+    }
+  }
+}

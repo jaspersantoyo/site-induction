@@ -1,0 +1,10 @@
+<app-loading-screen *ngIf="!data; else dciApp"></app-loading-screen>
+<ng-template #dciApp>
+  <div class="main">
+    <app-entry-form *ngIf="validateDciStep() || data.entryFormData.message;else mainContent" [entryFormData]="data.entryFormData"></app-entry-form>
+    <ng-template #mainContent>
+      <app-main-content [mainContentData]="data.mainContentData" [formData]="data.entryFormData"></app-main-content>
+    </ng-template>
+    <app-footer [footerData]="data.footerData"></app-footer>
+  </div>
+</ng-template>

@@ -1,0 +1,137 @@
+@import '../../styles/shared/base';
+.entry-form {
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  padding: 100px 0;
+}
+
+.entry-form .container {
+  position: relative;
+  max-width: 970px;
+  white-space: nowrap;
+}
+
+.entry-form .container:before {
+  display: block;
+  position: absolute;
+  content: '';
+  min-height: 100%;
+  width: 1px;
+  border-left: 1px solid #fff;
+  top: 0;
+  left: 55%;
+}
+
+.entry-form .display-inline {
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 50px;
+}
+
+.entry-form .entry-form-content {
+  width: 55%;
+  padding-right: 50px;
+  padding-bottom: 50px;
+}
+
+.entry-form .entry-form-main-form {
+  width: 45%;
+  padding-left: 50px;
+  padding-bottom: 50px;
+}
+
+.logo-container {
+  margin-bottom: 60px;
+}
+
+.message {
+  color: #fff;
+  position: relative;
+  top: 90px;
+}
+
+/* Date Picker Styling */
+
+.inspection-date .mydp {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.inspection-date .mydp .selection {
+  font-family: Circular-Pro-Book;
+  color: #555;
+  padding: 6px 12px;
+  text-align: left;
+  text-overflow: clip;
+  padding-right: 45px !important;
+  line-height: normal !important;
+}
+
+.inspection-date .mydp .selection::-webkit-input-placeholder {
+  color: #555;
+}
+
+.inspection-date .mydp .selection::-moz-placeholder {
+  color: #555;
+  opacity: 1;
+}
+
+.inspection-date .mydp .selection:-ms-input-placeholder {
+  color: #555;
+}
+
+.inspection-date .mydp .selection:focus {
+  z-index: 9;
+}
+
+.inspection-date .mydp .selbtngroup {
+  z-index: 10;
+}
+
+button.btnpicker span.icon-calendar {
+  display: none;
+}
+
+button.btnpicker {
+  background: transparent url($wp_dist_url + '/assets/img/calendar-icon.png') no-repeat center center !important;
+  border-left: none !important;
+  width: 45px !important;
+}
+
+@media all and (max-width: 767px) {
+  .entry-form {
+    background: #000 !important;
+    padding: 85px 0 50px;
+  }
+  .entry-form .container.main {
+    padding: 30px 15px;
+    white-space: normal;
+  }
+  .entry-form .container:before {
+    display: none;
+  }
+  .entry-form .container.mobile {
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    text-align: center;
+    padding: 0 15px;
+  }
+  .entry-form .mobile-entry-form-content {
+    padding: 50px 15px;
+  }
+  .entry-form .entry-form-main-form {
+    width: 100%;
+    padding: 0 15px;
+    border-left: none;
+  }
+  .message {
+    top: 0;
+  }
+  .inspection-date .mydp .selection {
+    font-size: 16px !important;
+  }
+}

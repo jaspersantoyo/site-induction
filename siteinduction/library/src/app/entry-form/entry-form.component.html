@@ -1,0 +1,25 @@
+<header *ngIf="isMobile" class="mobile-header">
+  <div class="column">
+    <img class="logo-img hi-res" src="{{ entryFormContent.logo }}" alt="Macquarie Telecom Group" />
+  </div>
+</header>
+<section class="entry-form" [ngStyle]="{ 'background-image': 'url(' + entryFormContent.background + ')' }" (window:resize)="onScreenResize($event)">
+  <div class="container mobile" *ngIf="isMobile" [ngStyle]="{ 'background-image': 'url(' + entryFormContent.background + ')' }">
+    <div class="mobile-entry-form-content display-inline">
+      <app-entry-form-content [content]="entryFormContent"></app-entry-form-content>
+    </div>
+  </div>
+  <div class="container main">
+    <div class="entry-form-content display-inline" *ngIf="!isMobile">
+      <div class="logo-container">
+        <img class="logo-img hi-res hidden-xs" src="{{ entryFormContent.logo }}" alt="Macquarie Telecom Group" />
+      </div>
+      <app-entry-form-content [content]="entryFormContent"></app-entry-form-content>
+    </div>
+
+    <div class="entry-form-main-form display-inline">
+      <div class="message" *ngIf="message" [innerHTML]="message"></div>
+      <app-entry-form-main-form *ngIf="formData" [company]="entryFormContent.company"></app-entry-form-main-form>
+    </div>
+  </div>
+</section>

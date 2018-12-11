@@ -1,0 +1,41 @@
+:host {
+  line-height: 1.1;
+}
+
+.content {
+  line-height: 20px;
+  font-size: 14px;
+
+  h1, h3 {
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  h1 {
+    font-size: 48px;
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+
+  h3 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 0;
+    margin-top: 20px;
+  }
+}
+
+p {
+  /* font-size: 16px; */
+}
+
+ol,
+ul {
+  padding-left: 25px;
+}
+
+@media all and (max-width: 719px) {
+  h3 {
+    margin-top: 0;
+  }
+}

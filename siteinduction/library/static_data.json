@@ -1,0 +1,83 @@
+{
+  "settings" : {
+    "general" : {
+      "inspectionDays" : ["tuesday", "wednesday", "thursday"],
+      "inspectionHours" : ["10:00", "14:00"],
+      "holidays" : [
+        "24-Sep-2018",
+        "1-Oct-2018",
+        "25-Dec-2018",
+        "26-Dec-2018",
+        "1-Jan-2019",
+        "28-Jan-2019",
+        "19-Apr-2019",
+        "20-Apr-2019",
+        "21-Apr-2019",
+        "22-Apr-2019",
+        "25-Apr-2019",
+        "10-Jun-2019",
+        "7-Oct-2019",
+        "25-Dec-2019",
+        "26-Dec-2019",
+        "1-Jan-2020",
+        "27-Jan-2020",
+        "10-Apr-2020",
+        "11-Apr-2020",
+        "12-Apr-2020",
+        "13-Apr-2020",
+        "25-Apr-2020",
+        "8-Jun-2020",
+        "5-Oct-2020",
+        "25-Dec-2020",
+        "26-Dec-2020",
+        "28-Dec-2020",
+        "1-Jan-2021"
+      ],
+      "timezone": "Australia/Sydney",
+      "editorSettings": {
+        "textarea_rows": 15,
+        "tabindex": 1,
+        "editor_class": "regular-text"
+      },
+      "tokenValidityInDays": 7,
+      "messages": {
+        "restrictedAccess": "<h2>You don't have permission to access this resource.</h2> <p>You can request access from Macquarie Intellicentre Security or through your Macquarie account representative.</p>",
+        "expiredToken": "<h2>The {token_validity_in_days} day period to complete Macquarie Intellicentre's Online Site Induction training material has expired. <br/> You’ll need to request a new token.</h2>",
+        "invalidToken": "<h2>Your token is invalid.</h2> <p>You can request access from Macquarie Intellicentre Security or through your Macquarie account representative.</p>",
+        "duplicateWindow": "<h2>Life is better in one browser.</h2> <p>This app is currently open from another window. Please close that window and try again.</p>"
+      },
+      "copyright": "&copy; Copyright {year} Macquarie Telecom Group",
+      "footerWidget": "footer-3",
+      "siteInductionPath": "/site-induction/",
+      "apps": ["macquarie_view"]
+    }
+  },
+  "senderEmail": "donotreply@macquarietelecomgroup.com",
+  "senderName": "Macquarie Data Centre Induction",
+  "emailInvitation": {
+    "subject": "Data Centre Site Induction Invitation",
+    "body": "<p class=\"lead\">We hear you need access to Macquarie Telecom Group's Intellicentres. Not a problem.</p> <p>Macquarie Telecom Group takes the safety, security and conduct within its data centres seriously. Before we grant you access, there's just a few things we need you to do:<br/><ol><li>Complete our Intellicentre online induction training and quiz.</li><li>Download, fill in and have your manager sign our Access form.</li><li>Visit us for guided tours of each Intellicentre you'll be working in (you'll select and book appointment times in the online induction tool).</li></ol></p> <p>Once you've completed our online Site Induction, we'll send you an email with calendar appointments for the times selected. Don't forget to bring the completed and signed Intellicentre Site Access Form on the day!",
+    "linkText": "Take me to the Intellicentre Online Site Induction training material",
+    "successMessage": "<div class=\"updated fade\"> <p>Invitation has been sent!</p> <p>Here's the generated link : <a href=\"{site_induction_link_url}\" target=\"_blank\"> {site_induction_link_url} </a> </p> </div>",
+    "successResendMessage": "<div class=\"updated fade\"> <p>Invitation has been sent!</p> <p>Here's the generated link : <a href=\"{site_induction_resend_link_url}\" target=\"_blank\"> {site_induction_resend_link_url} </a> </p> </div>",
+    "errorMessage": "<div class=\"error fade\"> <p>Invitation could not be sent.</p> <p>Mailer Error: {error_info} </p> </div>"
+  },
+  "emailScheduleConfirmation": {
+    "recipientName": "Intellicentre Security",
+    "subject": "Intellicentre Site Tour - Schedule Confirmation for {fullname} of {company}",
+    "successMessage": "Email has been sent!",
+    "errorMessage": "Email could not be sent. Mailer Error: {error_info}"
+  },
+  "ical": {
+    "dataCentre": {
+      "filename": "{dc_abbv} - {fullname}",
+      "summary": "{intellicentre} Site Tour - {fullname} - {company}",
+      "description": "{fullname} from {company} ({email}) completed the online site induction and will be here for a site tour on {day} {date} at {time}"
+    },
+    "customer": {
+      "filename": "{dc_abbv}",
+      "summary": "{intellicentre} - Site Tour",
+      "description": "Please visit {intellicentre} to finalise your Site Induction. On arrival please ask for Intellicentre Security and state that you are participating in the Intellicentre Site Tour."
+    }
+  }
+}

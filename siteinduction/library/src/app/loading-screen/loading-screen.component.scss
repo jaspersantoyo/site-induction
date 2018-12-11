@@ -1,0 +1,36 @@
+@import '../../styles/shared/base';
+h1 {
+  font-size: 36px;
+  font-family: $circular-pro-bold;
+}
+
+.loading-screen {
+  display: block;
+  position: fixed;
+  background: #000;
+  width: 100%;
+  min-height: 100%;
+  z-index: 9;
+}
+
+.loading-screen .modal.in {
+  display: block;
+  text-align: center;
+}
+
+.loading-screen .modal .modal-body {
+  padding: 50px 15px;
+}
+
+.loading-text {
+  line-height: 50px;
+}
+
+.spinner {
+  background-image: url($wp_dist_url + "/assets/img/spinner.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 13px;
+  text-align: center;
+}

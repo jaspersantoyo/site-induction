@@ -1,0 +1,38 @@
+@import '../../styles/shared/base';
+
+.content-section {
+  padding: 20px 0;
+  font-weight: 700;
+}
+
+.download-section {
+  min-height: 100px;
+
+  a {
+    display: inline-block;
+    padding: 5px 10px 5px 30px;
+    border-radius: 5px;
+    color: black;
+    font-size: 120%;
+    text-decoration: underline;
+    font-weight: 700;
+    position: relative;
+
+    i {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      font-size: 150%;
+      position: absolute;
+      left: 0;
+      background-image: url($wp_dist_url + '/assets/icon/blk_downloadb.svg');
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.btn-submit {
+  float: right;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}

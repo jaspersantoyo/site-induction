@@ -1,0 +1,199 @@
+@import '../../styles/shared/base';
+
+form .form-control {
+  font-size: 13px;
+  height: 50px;
+}
+
+h4 {
+  margin: 30px 0px 25px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.required {
+  padding-right: 35px;
+}
+
+.required.ng-valid.ng-touched {
+  border: 1px solid #21b21e;
+  border-right-width: 8px;
+}
+
+.required.ng-invalid.ng-touched,
+.invalid-field {
+  border: 1px solid #f80c27;
+  border-right-width: 8px;
+}
+
+.required+span {
+  position: absolute;
+  right: 20px;
+  top: 50px;
+}
+
+.required.ng-valid.ng-touched+span {
+  color: #21b21e;
+}
+
+.required.ng-invalid.ng-touched+span,
+.invalid-field+span {
+  color: #f80c27;
+}
+
+.text-error {
+  color: #f80c27;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-grey {
+  color: #7d7d7d;
+}
+
+hr {
+  margin: 15px 0;
+}
+
+label {
+  font-size: 16px;
+  font-weight: normal;
+  padding-left: 0;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]+span {
+  display: inline-block;
+  width: 25px;
+  height: 19px;
+  margin-top: -3px;
+  vertical-align: middle;
+  background-image: url($wp_dist_url + '/assets/img/checkbox-sprite.png');
+  background-repeat: no-repeat;
+}
+
+input[type="checkbox"]:checked+span {
+  background-position: -25px 0;
+}
+
+// TODO: can be refactored as a generic css for all checkboxes
+.cntrctd-co-container {
+  padding-top: 15px;
+
+  .checkbox {
+    small {
+      font-size: 16px;
+      padding-left: 25px;
+      position: relative;
+      display: inline-block;
+      line-height: 1;
+    }
+  }
+
+  label {
+    cursor: pointer;
+
+    input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    /* Create the checkmark/indicator */
+    small:before {
+      content: "";
+      width: 25px;
+      height: 19px;
+      position: absolute;
+      left: 0px;
+      background-image: url($wp_dist_url + '/assets/img/checkbox-sprite.png');
+      background-repeat: no-repeat;
+    }
+
+    /* Show the checkmark when checked */
+    input:checked~small:before {
+      background-position: -25px 0;
+    }
+  }
+
+  .required+span.icon {
+    top: 20px;
+  }
+}
+
+.location {
+  small {
+    display: block;
+    padding-left: 28px;
+    font-size: 16px;
+  }
+}
+
+.schedule-options {
+  margin-left: 13px;
+}
+
+.inspection-date {
+  width: 155px;
+  margin: 0 15px;
+}
+
+.inspection-hours {
+  position: relative;
+  width: 155px;
+  margin-left: 15px;
+
+  select {
+    height: 52px;
+    background: #fff url($wp_dist_url + '/assets/img/dropdown-arrow.png') no-repeat 90% center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    padding-right: 30px;
+  }
+
+  select::-ms-expand {
+    display: none;
+  }
+
+  span {
+    position: absolute;
+    right: 10px;
+  }
+}
+
+.btn-submit {
+  margin-top: 20px;
+  float: right;
+}
+
+.disclaimer-content {
+  color: white;
+}
+
+@media all and (max-width: 976px) {
+
+  .inspection-date,
+  .inspection-hours {
+    width: 100px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  form .form-control {
+    font-size: 16px;
+  }
+
+  .inspection-date,
+  .inspection-hours {
+    width: 155px;
+  }
+}

@@ -1,0 +1,34 @@
+<h2>Select a Time for your Intellicentre Tour.</h2>
+<h4>Select your preferred on-site tour time(s).</h4>
+<form #pickTimeslotForm="ngForm" novalidate (ngSubmit)="next($event)" method="post">
+  <div *ngFor="let location of data.locations; let i = index">
+    <div class="row schedule-options" *ngIf="location.selected">
+      <div class="text-grey title">
+        <strong>{{ location.title }}</strong>
+      </div>
+      <div class="description">{{"Preferred " + location.title + " on-site tour time (Sydney)"}}</div>
+      <div class="selections">
+        <div class="col-xs-6 inspection-date">
+          <i class="fa fa-spinner fa-spin" *ngIf="!isDataLoaded"></i>
+          <my-date-picker name="datepicker" [disabled]="!isDataLoaded" [class.inactive]="!isDataLoaded" [options]="location.datePickerOptions"
+            [(ngModel)]="location.datepicker" [placeholder]="'---Select Date---'" (dateChanged)="onDateChanged($event, location)"
+            required></my-date-picker>
+        </div>
+        <div class="col-xs-6 inspection-hours">
+          <select id="book-timeslot-time-{{i}}" name="time" class="form-control" [(ngModel)]="location.time" [required]="location.selected"
+            [attr.disabled]="disableDropdown(location)">
+            <option value="" default>---Select Time---</option>
+            <option *ngFor="let time of location.scheduleTime" [value]="time">{{ time }}</option>
+          </select>
+        </div>
+      </div>
+      <div *ngIf="!areDateValid && !location.validation.isValid && location.validation.appointment && isSubmited" class="validation">
+        <span class="fa fa-exclamation-circle"></span> Sorry, your chosen timeslot has now been taken. Please try
+        again.</div>
+      <div class="disclaimer-content" [innerHTML]="location.disclaimer"></div>
+    </div>
+  </div>
+  <button type="submit" name="send_entry_form_data" class="btn btn-submit" [disabled]="!pickTimeslotForm.valid">
+    Next
+  </button>
+</form>

@@ -1,0 +1,36 @@
+<section class="summary-page">
+  <div class="col-sm-12" *ngIf="summary">
+    <h2><strong>Summary</strong></h2>
+    <h3><strong>{{ summary.heading }}</strong></h3>
+    <hr />
+
+    <section *ngFor="let schedule of summary.appointment">
+      <div class="row">
+        <div class="col-sm-6">
+          <h3 class="strong">{{ schedule.intellicentre }}</h3>
+          <p class="strong" [innerHTML]="schedule.subcontent"></p>
+        </div>
+
+        <div class="col-sm-6 schedule">
+          <div class="row">
+            <h3 class="col-sm-12 col-xs-4 appointment-time">
+              <span class="fa fa-clock-o"></span> {{ schedule.time}}
+            </h3>
+            <h3 class="col-sm-12 col-xs-8 appointment-date">
+              <span class="fa fa-calendar"></span>
+              <label>
+                {{ schedule.formattedDate | date:'d' }} {{ schedule.formattedDate | date:'MMMM' }} {{ schedule.formattedDate | date:'y' }}
+                <br/> <small>{{ schedule.formattedDate | date:'EEEE' }}</small>
+              </label>
+            </h3>
+          </div>
+        </div>
+      </div>
+      <hr />
+    </section>
+
+    <h3 class="success-message"><strong>{{ summary.successMessage }}</strong></h3>
+
+    <a href="{{ summary.finishButtonLink }}" class="btn btn-submit" role="button">Finish</a>
+  </div>
+</section>

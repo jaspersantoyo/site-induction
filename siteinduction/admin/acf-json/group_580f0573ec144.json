@@ -1,0 +1,793 @@
+{
+    "key": "group_580f0573ec144",
+    "title": "Intellicentre Induction Quiz",
+    "fields": [
+        {
+            "key": "field_589285b9bfa5b",
+            "label": "Data Centre Address",
+            "name": "data_centre_address",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": "",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_5b5182419e2fd",
+            "label": "Data Centre Location",
+            "name": "data_centre_location",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_589285d2bfa5c",
+            "label": "Data Centre Abbreviation",
+            "name": "data_centre_abbreviation",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": "",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_58b3ba33c0e62",
+            "label": "Data Centre Emails",
+            "name": "data_centre_emails",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_5a6826954054f",
+            "label": "Data Center Disclaimer",
+            "name": "data_center_disclaimer",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_5b61093fecebc",
+            "label": "Data Centre Induction Schedule",
+            "name": "data_centre_induction_schedule",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "button_label": "Add Row",
+            "min": "",
+            "max": "",
+            "layouts": [
+                {
+                    "key": "5b6109463ccd8",
+                    "name": "facility_servicing_contractor",
+                    "label": "Facility Servicing Contractor",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b610b96ecebd",
+                            "label": "Schedule Day",
+                            "name": "schedule_day",
+                            "type": "checkbox",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "monday": "Monday",
+                                "tuesday": "Tuesday",
+                                "wednesday": "Wednesday",
+                                "thursday": "Thursday",
+                                "friday": "Friday",
+                                "saturday": "Saturday",
+                                "sunday": "Sunday"
+                            },
+                            "default_value": [
+                                "tuesday"
+                            ],
+                            "layout": "vertical",
+                            "toggle": 0
+                        },
+                        {
+                            "key": "field_5b61107eecebe",
+                            "label": "Schedule Time",
+                            "name": "schedule_time",
+                            "type": "checkbox",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "08:30": "08:30",
+                                "15:00": "15:00"
+                            },
+                            "default_value": [
+                                "08:30",
+                                "15:00"
+                            ],
+                            "layout": "vertical",
+                            "toggle": 1
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                },
+                {
+                    "key": "5b70f61f4367b",
+                    "name": "macquarie_staff",
+                    "label": "Macquarie Staff",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b70f61f4367c",
+                            "label": "Schedule Day",
+                            "name": "schedule_day",
+                            "type": "checkbox",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "monday": "Monday",
+                                "tuesday": "Tuesday",
+                                "wednesday": "Wednesday",
+                                "thursday": "Thursday",
+                                "friday": "Friday",
+                                "saturday": "Saturday",
+                                "sunday": "Sunday"
+                            },
+                            "default_value": [
+                                "tuesday",
+                                "wednesday",
+                                "thursday"
+                            ],
+                            "layout": "vertical",
+                            "toggle": 1
+                        },
+                        {
+                            "key": "field_5b70f61f4367d",
+                            "label": "Schedule Time",
+                            "name": "schedule_time",
+                            "type": "checkbox",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "10:00": "10:00",
+                                "14:00": "14:00"
+                            },
+                            "default_value": [
+                                "10:00",
+                                "14:00"
+                            ],
+                            "layout": "vertical",
+                            "toggle": 1
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                },
+                {
+                    "key": "5b70f64e4367e",
+                    "name": "customer",
+                    "label": "Customer",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b70f64e4367f",
+                            "label": "Schedule Day",
+                            "name": "schedule_day",
+                            "type": "checkbox",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "monday": "Monday",
+                                "tuesday": "Tuesday",
+                                "wednesday": "Wednesday",
+                                "thursday": "Thursday",
+                                "friday": "Friday",
+                                "saturday": "Saturday",
+                                "sunday": "Sunday"
+                            },
+                            "default_value": [
+                                "tuesday",
+                                "wednesday",
+                                "thursday"
+                            ],
+                            "layout": "vertical",
+                            "toggle": 1
+                        },
+                        {
+                            "key": "field_5b70f64e43680",
+                            "label": "Schedule Time",
+                            "name": "schedule_time",
+                            "type": "checkbox",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "10:00": "10:00",
+                                "14:00": "14:00"
+                            },
+                            "default_value": [
+                                "10:00",
+                                "14:00"
+                            ],
+                            "layout": "vertical",
+                            "toggle": 1
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        {
+            "key": "field_5b7a4e9499851",
+            "label": "Data Centre Seat Capacity",
+            "name": "data_centre_seat_capacity",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 6,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_580f0578c09e9",
+            "label": "Site Induction Sections",
+            "name": "site_induction_sections",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": "",
+            "button_label": "Add Section",
+            "layouts": [
+                {
+                    "key": "581a9d04efabd",
+                    "name": "sub_content_section",
+                    "label": "Sub Content Section",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_581a9d1fefabe",
+                            "label": "Sub Content",
+                            "name": "sub_content",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": "",
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "new_lines": "br",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "rows": 6,
+                            "readonly": 0,
+                            "disabled": 0
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                },
+                {
+                    "key": "589abce60448c",
+                    "name": "introduction_section",
+                    "label": "Introduction Section",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_589abd070448d",
+                            "label": "Reading Material Introduction",
+                            "name": "reading_material_introduction",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "new_lines": "br",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "rows": 6,
+                            "readonly": 0,
+                            "disabled": 0
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                },
+                {
+                    "key": "580f058493019",
+                    "name": "topic_section",
+                    "label": "Topic Section",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_580f05b4c09ea",
+                            "label": "Topic Title",
+                            "name": "topic_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": "",
+                            "conditional_logic": "",
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        },
+                        {
+                            "key": "field_580f05cfc09eb",
+                            "label": "Sub Topic",
+                            "name": "sub_topic",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "min": 0,
+                            "max": 0,
+                            "layout": "block",
+                            "button_label": "Add Sub Topic",
+                            "collapsed": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_580f0622c09ec",
+                                    "label": "Sub Topic Title",
+                                    "name": "sub_topic_title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": "",
+                                    "conditional_logic": "",
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "readonly": 0,
+                                    "disabled": 0
+                                },
+                                {
+                                    "key": "field_580f062ec09ed",
+                                    "label": "Sub Topic Content",
+                                    "name": "sub_topic_content",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": "",
+                                    "conditional_logic": "",
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "tabs": "all",
+                                    "toolbar": "basic",
+                                    "media_upload": "",
+                                    "default_value": "",
+                                    "delay": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "580f0684c09ee",
+                    "name": "quiz_section",
+                    "label": "Quiz Section",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_580f06d8c09ef",
+                            "label": "Quiz Heading",
+                            "name": "quiz_heading",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        },
+                        {
+                            "key": "field_580f06e4c09f0",
+                            "label": "Quiz Sub Heading",
+                            "name": "quiz_sub_heading",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "new_lines": "br",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "rows": 6,
+                            "readonly": 0,
+                            "disabled": 0
+                        },
+                        {
+                            "key": "field_581161ed3fc6c",
+                            "label": "Question Category",
+                            "name": "question_category",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "min": 0,
+                            "max": 0,
+                            "layout": "block",
+                            "button_label": "Add Category",
+                            "collapsed": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_581164423fc6d",
+                                    "label": "Category Name",
+                                    "name": "category_name",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "readonly": 0,
+                                    "disabled": 0
+                                },
+                                {
+                                    "key": "field_5811a2d6c7442",
+                                    "label": "Question Type",
+                                    "name": "question_type",
+                                    "type": "flexible_content",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "min": "",
+                                    "max": "",
+                                    "button_label": "Add Question Type",
+                                    "layouts": [
+                                        {
+                                            "key": "5811a2e09eb85",
+                                            "name": "open_ended_question",
+                                            "label": "Open Ended Question",
+                                            "display": "block",
+                                            "sub_fields": [
+                                                {
+                                                    "key": "field_5811a32dc7443",
+                                                    "label": "Question",
+                                                    "name": "question",
+                                                    "type": "textarea",
+                                                    "instructions": "",
+                                                    "required": "",
+                                                    "conditional_logic": "",
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "",
+                                                    "new_lines": "",
+                                                    "maxlength": "",
+                                                    "placeholder": "",
+                                                    "rows": 3,
+                                                    "readonly": 0,
+                                                    "disabled": 0
+                                                },
+                                                {
+                                                    "key": "field_583f918f51262",
+                                                    "label": "Answer",
+                                                    "name": "answer",
+                                                    "type": "textarea",
+                                                    "instructions": "",
+                                                    "required": 1,
+                                                    "conditional_logic": "",
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "",
+                                                    "new_lines": "br",
+                                                    "maxlength": "",
+                                                    "placeholder": "",
+                                                    "rows": 6,
+                                                    "readonly": 0,
+                                                    "disabled": 0
+                                                }
+                                            ],
+                                            "min": "",
+                                            "max": ""
+                                        },
+                                        {
+                                            "key": "5811a376c7444",
+                                            "name": "multiple_choice_question",
+                                            "label": "Multiple Choice Question",
+                                            "display": "block",
+                                            "sub_fields": [
+                                                {
+                                                    "key": "field_5811a3f3c7445",
+                                                    "label": "Question",
+                                                    "name": "question",
+                                                    "type": "textarea",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "",
+                                                    "new_lines": "",
+                                                    "maxlength": "",
+                                                    "placeholder": "",
+                                                    "rows": 3,
+                                                    "readonly": 0,
+                                                    "disabled": 0
+                                                },
+                                                {
+                                                    "key": "field_5811a419c7446",
+                                                    "label": "Choices",
+                                                    "name": "choices",
+                                                    "type": "repeater",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "min": 2,
+                                                    "max": 4,
+                                                    "layout": "block",
+                                                    "button_label": "Add Choice",
+                                                    "collapsed": "",
+                                                    "sub_fields": [
+                                                        {
+                                                            "key": "field_5811a449c7447",
+                                                            "label": "Choice",
+                                                            "name": "choice",
+                                                            "type": "textarea",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "default_value": "",
+                                                            "new_lines": "",
+                                                            "maxlength": "",
+                                                            "placeholder": "",
+                                                            "rows": 3,
+                                                            "readonly": 0,
+                                                            "disabled": 0
+                                                        },
+                                                        {
+                                                            "key": "field_582423e976f65",
+                                                            "label": "Correct Answer",
+                                                            "name": "correct_answer",
+                                                            "type": "checkbox",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": "",
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "layout": "vertical",
+                                                            "choices": {
+                                                                "true": "Check if correct answer"
+                                                            },
+                                                            "default_value": [],
+                                                            "allow_custom": 0,
+                                                            "save_custom": 0,
+                                                            "toggle": 0,
+                                                            "return_format": "value"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "min": "",
+                                            "max": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "intellicentre"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1536106295
+}

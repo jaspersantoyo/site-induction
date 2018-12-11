@@ -1,0 +1,101 @@
+<form *ngIf="data.locations.length > 0" novalidate #form="ngForm" (ngSubmit)="submitForm($event)" method="post">
+  <div class="form-group">
+    <label class="text-white" for="dci-form-first-name">First Name</label>
+    <input type="text" placeholder="John" class="form-control required" name="firstname" [ngClass]="{'invalid-field': firstname.invalid && isFormSubmitted}"
+      id="dci-form-first-name" [(ngModel)]="data.firstname" #firstname="ngModel" pattern="^([a-zA-Z]+[,.]?[ ]?|[a-zA-Z]+['-]?)+$"
+      required />
+    <span *ngIf="firstname.valid && firstname.touched" class="fa fa-check"></span>
+    <span *ngIf="firstname.invalid && (firstname.touched || isFormSubmitted)" class="fa fa-exclamation-circle"></span>
+    <div *ngIf="firstname.invalid && (firstname.touched || isFormSubmitted) && firstname.errors?.required" class="text-error">
+      Please enter your first name
+    </div>
+    <div *ngIf="firstname.invalid && !firstname.errors?.required && (firstname.touched || isFormSubmitted)" class="text-error">
+      Please enter valid first name
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="text-white" for="dci-form-last-name">Last Name</label>
+    <input type="text" placeholder="Doe" class="form-control required" name="lastname" [ngClass]="{'invalid-field': lastname.invalid && isFormSubmitted}"
+      id="dci-form-last-name" [(ngModel)]="data.lastname" #lastname="ngModel" pattern="^([a-zA-Z]+[,.]?[ ]?|[a-zA-Z]+['-]?)+$"
+      required />
+    <span *ngIf="lastname.valid && lastname.touched" class="fa fa-check"></span>
+    <span *ngIf="lastname.invalid && (lastname.touched || isFormSubmitted)" class="fa fa-exclamation-circle"></span>
+    <div *ngIf="lastname.invalid && (lastname.touched || isFormSubmitted)  && lastname.errors?.required" class="text-error">
+      Please enter your last name
+    </div>
+    <div *ngIf="lastname.invalid && !lastname.errors?.required && (lastname.touched || isFormSubmitted)" class="text-error">
+      Please enter valid last name
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="text-white" for="dci-form-email">Email Address</label>
+    <input type="email" placeholder="email@example.com" class="form-control required" name="email" [ngClass]="{'invalid-field': email.invalid && isFormSubmitted}"
+      id="dci-form-email" [(ngModel)]="data.email" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+    />
+    <span *ngIf="email.valid && email.touched" class="fa fa-check"></span>
+    <span *ngIf="email.invalid && (email.touched || isFormSubmitted)" class="fa fa-exclamation-circle"></span>
+    <div *ngIf="email.invalid && (email.touched || isFormSubmitted)" class="text-error">
+      Please enter a valid email address
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="text-white" for="dci-form-company">Company</label>
+    <input type="text" placeholder="XYZ Corp." class="form-control required" name="company" [ngClass]="{ 'invalid-field': company.invalid && isFormSubmitted}"
+      id="dci-form-company" [(ngModel)]="data.company" #company="ngModel" required pattern="^[\w]+[\S ]+$" />
+    <span *ngIf="company.touched && company.value && company.valid" class="fa fa-check"></span>
+    <span *ngIf="company.invalid && (company.touched || isFormSubmitted)" class="fa fa-exclamation-circle"></span>
+    <div *ngIf="company.invalid && (company.touched || isFormSubmitted)" class="text-error">
+      Please enter a valid company name
+    </div>
+
+    <div class="cntrctd-co-container">
+      <div class="checkbox">
+        <label class="text-white" for="dci-form-contracted-company">
+          <input type="checkbox" id="dci-form-contracted-company" name="contracted-company" (change)="toggleContractedCompany()" #contractedCompanyCb/>
+          <small>
+            I’m a contractor working on behalf of another company
+          </small>
+        </label>
+      </div>
+      <div class="form-group" *ngIf="contractedCompanyFlag">
+        <input type="text" placeholder="Enter company name" class="form-control required" [ngClass]="{ 'invalid-field': contractedCompany.invalid && isFormSubmitted}"
+          name="contractedCompany" #contractedCompany="ngModel" [(ngModel)]="data.contractedCompany" required pattern="^[\w]+[\S ]+$" [equalValidator]="data.company"
+        />
+        <span *ngIf="contractedCompany.touched && contractedCompany.value && contractedCompany.valid" class="fa fa-check icon"></span>
+        <span *ngIf="contractedCompany.invalid && (contractedCompany.touched || isFormSubmitted)" class="fa fa-exclamation-circle icon"></span>
+        <div *ngIf="contractedCompany.invalid && (contractedCompany.touched || isFormSubmitted) && !contractedCompany.errors?.equalValidator" class="text-error">
+          Please enter a valid company name
+        </div>
+        <div *ngIf="(company.touched || isFormSubmitted) && contractedCompany.errors?.equalValidator" class="text-error">
+          Company and the company your working on behalf of should not be the same.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="text-white">Select the data centres you need a site induction for:</h4>
+
+  <div *ngIf="!hasSelectedLocation && isFormSubmitted" class="text-error">
+    <span class="fa fa-exclamation-circle"></span>
+    Please select atleast one intellicentre
+  </div>
+
+  <div ngModelGroup="locations">
+    <div class="form-group" *ngFor="let location of data.locations; let i=index" ngModelGroup="{{ location.slug }}">
+      <div class="checkbox location">
+        <label class="text-white">
+          <input type="checkbox" [id]="location.slug" name="selected" #selectedLocation [(ngModel)]="location.selected" (ngModelChange)="checkLocation()"
+          />
+          <span></span> {{ location.title }}
+          <small class="text-grey">{{location.location}}</small>
+        </label>
+      </div>
+    </div>
+  </div>
+  <button type="submit" name="send_entry_form_data" class="btn btn-submit" [disabled]="!form.valid || !hasSelectedLocation">
+    Next
+  </button>
+</form>

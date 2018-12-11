@@ -1,0 +1,28 @@
+@import '../../styles/shared/base';
+
+.footer {
+  background-color: #000;
+  padding: 25px 0;
+
+  .container {
+    text-align: center;
+
+    .copyright {
+      color: $color-grey-01;
+      padding-right: 10px;
+    }
+
+    .copyright,
+    .footer-links {
+      display: inline-block;
+    }
+  }
+}
+
+@media all and (max-width: 767px) {
+  .copyright {
+    float: none;
+    display: block;
+    font-size: 13px;
+  }
+}

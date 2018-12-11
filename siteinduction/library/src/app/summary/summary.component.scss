@@ -1,0 +1,82 @@
+@import '../../styles/shared/base';
+.summary-page hr {
+  border-top: 2px dotted #818181;
+}
+
+.summary-page .strong {
+  font-weight: bold;
+}
+
+.schedule {
+  border-left: 2px solid $color-grey-01;
+  padding-left: 30px;
+  font-size: 24px;
+}
+
+.schedule .fa-calendar-alt {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.appointment-time {
+  span {
+    padding-right: 10px;
+    float: left;
+    line-height: 120%;
+  }
+}
+
+.appointment-date {
+  float: left;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  span {
+    padding-right: 10px;
+    float: left;
+  }
+  label {
+    font-size: 24px;
+    width: 80%;
+  }
+  small {
+    font-weight: 400;
+    font-size: 65%;
+    line-height: 1;
+    color: #777;
+  }
+}
+
+.success-message {
+  background: #fff url($wp_dist_url + '/assets/img/envelope-icon.png') no-repeat 95% center;
+  color: #000;
+  border: 2px solid $color-grey-01;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 30px 150px 30px 30px;
+  margin: 30px 0 40px;
+}
+
+.btn-submit {
+  float: right;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+@media all and (max-width: 719px) {
+  .schedule {
+    border-left: none;
+    padding-left: 15px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  .appointment-date {
+    border-left: 1px solid #232323;
+  }
+  .success-message {
+    background-position: center 20%;
+    text-align: center;
+    padding: 100px 0 25px;
+  }
+}

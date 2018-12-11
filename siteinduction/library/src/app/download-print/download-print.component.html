@@ -1,0 +1,11 @@
+<h2>{{data.heading}}</h2>
+<div class="content-section">
+  <div [innerHTML]="data.content"></div>
+</div>
+<div class="download-section">
+  <a [href]="data.formLink" target="_blank" (click)="downloadFile()" download>
+    <i></i>{{data.buttonLabel}}</a>
+</div>
+<button type="button" class="btn btn-submit" (click)="next()" [disabled]="isDisable()">
+  Next
+</button>
